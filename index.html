@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>誕生日カウントダウン</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Allura&display=swap">
+</head>
+<body>
+    <div id="password-overlay">
+        <div id="password-container">
+            <h1>Enter password
+            <input type="password" id="password-input" placeholder="Password">
+            <button id="password-submit">Send</button>
+            <p id="password-error" style="color: red; display: none;">wrong password</p>
+        </div>
+    </div>
+
+    <div id="overlay">
+        <h1>Happy Birthday</h1>
+        <div id="message-container">
+            <span id="moving-message">Wishing you the best birthday ever!</span>
+        </div>
+        <img src="https://drive.google.com/uc?export=view&id=1-PxwmVjruYA0Kr2ND37x5RB1pEci369z" alt="Pink Birthday Cake" class="cake-image">
+    </div>
+
+    <header>
+        <div id="header-content">
+            <h1>Yuuka Happy 21th Birthday!!</h1>
+            <p id="date-text">May 31th♡</p>
+            <div class="balloons"></div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="memories.html">MEMORIES</a></li>
+            <li><a href="message.html">MESSAGE</a></li>
+            <li><a href="past.html">PAST</a></li>
+        </ul>
+    </nav>
+
+    <section id="countdown-section">
+        <div id="countdown" class="sticky">
+            <h2>Countdown to Your Birthday...</h2>
+            <div id="timer">
+                <span id="days">00</span>日
+                <span id="hours">00</span>時間
+                <span id="minutes">00</span>分
+                <span id="seconds">00</span>秒
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 love you , Sayaka</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+

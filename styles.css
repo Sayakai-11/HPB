@@ -1,0 +1,494 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f9;
+    color: #333;
+}
+
+#password-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+#password-container {
+    text-align: center;
+    background: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#password-container h1 {
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+#password-container input {
+    font-size: 1.2em;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+#password-container button {
+    font-size: 1.2em;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #f4f4f9;
+    color: #333;
+    cursor: pointer;
+}
+
+#password-container button:hover {
+    background: #ddd;
+}
+
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(249, 223, 229, 1); /* 背景が透けないように変更 */
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; /* オーバーレイのz-indexを高く設定 */
+    font-family: 'Allura', cursive;
+}
+
+#overlay h1 {
+    margin: 20px;
+    font-size: 4em;
+    text-align: center;
+}
+
+#message-container {
+    position: relative;
+    width: 100%;
+    height: 2em; /* メッセージの高さを確保 */
+    overflow: hidden; /* コンテナのオーバーフローを隠す */
+}
+
+#moving-message {
+    position: absolute;
+    white-space: nowrap;
+    font-size: 1.5em;
+    color: grey; /* メッセージの色を指定 */
+    left: 0;
+}
+
+.cake-image {
+    width: 300px; /* 画像の幅を調整 */
+    height: auto;
+    margin-top: 20px; /* 上部のマージンを追加 */
+    border-radius: 10px; /* 角を丸くする */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* ボックスシャドウを追加 */
+}
+
+header {
+    background-color: #f9dfe5; /* 薄ピンクの背景色 */
+    color: #000; /* 黒の文字色 */
+    text-align: center; /* テキストを中央揃え */
+    font-family: 'Allura', cursive; 
+    padding: 20px;
+    position: relative; /* 風船の位置を相対的に設定 */
+    overflow: hidden;
+    z-index: 1; /* ヘッダーのz-indexを低く設定 */
+}
+
+#header-content {
+    max-width: 600px; /* ヘッダーコンテンツの幅を制限 */
+    margin: 0 auto; /* 水平方向に中央揃え */
+}
+
+#header-content h1 {
+    margin: 0; /* 余白を削除 */
+    padding-bottom: 10px; /* 下部のパディングを追加 */
+    font-size: 3em;
+}
+
+#header-content p {
+    margin: 0; /* 余白を削除 */
+    padding-top: 5px; /* 上部のパディングを追加 */
+}
+
+#date-text {
+    font-size: 2em; /* フォントサイズを変更 */
+    font-family: 'Allura', cursive; 
+}
+
+.balloons {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none; /* 風船がクリックを妨げないように */
+}
+
+.balloon {
+    position: absolute;
+    bottom: -10%; /* 画面の外から開始 */
+    width: 150px; /* 風船の幅を三倍に調整 */
+}
+
+footer {
+    background: #444;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    z-index: 1; /* フッターのz-indexを低く設定 */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+    background: #333;
+    margin: 0; /* メニューバーの余白を削除 */
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px; /* リンクのパディングを追加 */
+    display: inline-block; /* リンクをブロックのように表示 */
+    font-family: 'Allura', cursive; /* フォントファミリーを追加 */
+    font-size: 1.2em; /* フォントサイズを調整 */
+}
+
+.sticky {
+    position: sticky;
+    top: 0;
+    z-index: 1; /* スティッキーヘッダーのz-indexを低く設定 */
+    background-color: #f9dfe5;  
+    padding: 10px 20px;
+}
+
+#timer {
+    font-size: 24px;
+    text-align: center;
+    margin: 0; /* 余白を削除 */
+    padding: 10px 0; /* 上下のパディングを追加 */
+    background-color: #f9dfe5; /* 背景色をヘッダーと同じ色に */
+    color: white; /* 文字色をヘッダーのタイトルと同じ色に */
+    font-family: 'Allura', cursive; 
+}
+
+#timer span {  /*rgba(234, 56, 181, 0.831);*/
+    font-weight: bold;
+    color: black(250, 249, 248);
+    font-family: 'Allura', cursive; 
+    font-size: 48px;
+}
+
+.scroll-anim {
+    animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+#countdown-section {
+    text-align: center;
+    margin: 0; /* 余白を削除 */
+
+}
+
+#countdown h2 {
+    font-family: 'Allura', cursive; /* 新しいフォントを適用 */
+    font-size: 3em; /* フォントサイズを変更 */
+    padding: 5px 0; 
+    color: black;
+}
+
+/*Memories.html*/
+#photo-gallery {
+    text-align: center;
+    padding: 20px;
+    background-color: #f9dfe5;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+#photo-gallery h2 {
+    font-family: 'Allura', cursive;
+    font-size: 3em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.month-section {
+    margin: 20px 0;
+    padding: 10px;
+    border: 2px solid white; /* ボックスの白い線 */
+    border-radius: 10px; /* 角を丸くする */
+    background-color: #f9dfe5;
+}
+
+.month-section h3 {
+    font-family: 'Allura', cursive;
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.gallery img {
+    margin: 10px;
+    max-width: 200px;
+    max-height: 150px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.month-comment {
+    font-family: 'Allura', cursive;
+    font-size: 1.2em;
+    color: #333;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f9dfe5; 
+    border-radius: 10px; 
+    max-width: calc(100% - 40px);
+    box-sizing: border-box; 
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+    word-break: break-word;
+    white-space: normal;
+}
+
+.month-section {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.month-section.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+@media (max-width: 600px) {
+    .month-comment {
+        font-size: 1em; /* 小さい画面向けにフォントサイズを調整 */
+    }
+
+    .gallery img {
+        max-width: 150px;
+        max-height: 100px;
+    }
+}
+
+
+/*message.html*/
+#message-section {
+    text-align: center;
+    padding: 20px;
+    margin: 0 ;
+    width: 100%;
+    background-color: #f9dfe5;
+    border-radius: 10px;
+    overflow-x: auto; /* 横スクロールを有効にする */
+    white-space: nowrap; /* コンテンツが改行されないようにする */
+}
+
+
+#message-section h2 {
+    font-family: 'Allura', cursive;
+    font-size: 3em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#message-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    text-align: center;
+    font-family: 'Allura', cursive;
+    font-size: 1.5em;
+}
+
+#video-section, #friends-section {
+    text-align: center;
+    padding: 20px;
+    margin: 20px auto;
+    background-color: #fff; /* 背景色を白に */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* ボックスの影を追加 */
+}
+
+#video-section h3, #friends-section h3 {
+    font-family: 'Allura', cursive;
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#video iframe {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+#friends {
+    font-family: 'Allura', cursive;
+    font-size: 1.5em;
+    color: #333;
+}
+
+/*past.html*/
+#past {
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    margin: 0 ;
+    width: 100%;
+    background-color: #f9dfe5;
+    border-radius: 10px;
+    padding-bottom: 60px;
+    overflow-x: auto; /* 横スクロールを有効にする */
+    white-space: nowrap; /* コンテンツが改行されないようにする */
+}
+
+#past h2 {
+    font-family: 'Allura', cursive;
+    font-size: 3em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.birthday-section {
+    padding: 20px;
+    border: 2px solid white;
+    border-radius: 10px;
+    background-color: #f9dfe5;
+    margin: 0;
+    position: relative;
+}
+
+.birthday-section h3 {
+    font-family: 'Allura', cursive;
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.year-label {
+    font-family: 'Allura', cursive;
+    font-size: 4em;
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    top: -25px;
+    left: -10px;
+}
+
+.pictures {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pictures img {
+    margin: 10px;
+    max-width: 200px; /* 写真の最大幅を設定 */
+    max-height: 200px; /* 写真の最大高さを設定 */
+    width: auto; /* アスペクト比を保持 */
+    height: auto; /* アスペクト比を保持 */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.video {
+    margin-top: 20px;
+}
+
+.video iframe {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.arrowfirst {
+    font-size: 10em;
+    color: white;
+    display: block;
+    text-align: left;
+    margin: -20px 0 0 0;
+    line-height: 1;
+    padding-left: 30px;
+    height: 0.5em;
+}
+
+.arrow {
+    font-size: 10em;
+    color: white;
+    display: block;
+    text-align: left;
+    margin: -20px 0 0 0;
+    line-height: 1;
+    padding-left: 30px;
+}
+
+.arrowlast {
+    font-size: 15em;
+    color: white;
+    display: block;
+    text-align: left;
+    margin: -50px 0 100 0;
+    line-height: 0.05;
+    padding-left: 10px;
+}
+
+.continue-text {
+    font-family: 'Allura', cursive;
+    font-size: 4em;
+    color: white;
+    padding-bottom: 0px;
+    text-align: left;
+    margin: 125px 0 0 10px;
+    font-weight: bold;
+}
+
+.continue-text_1 {
+    font-family: 'Allura', cursive;
+    font-size: 1.5em;
+    color: white;
+    padding-bottom: 0px;
+    text-align: left;
+    margin: 0 0 0 10px;
+    font-weight: bold;
+}
