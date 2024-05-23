@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const correctPassword = 'your_password'; // 設定するパスワード
+    const correctPassword = 'from_your_bestie'; // 設定するパスワード
     const passwordOverlay = document.getElementById('password-overlay');
     const passwordInput = document.getElementById('password-input');
     const passwordSubmit = document.getElementById('password-submit');
