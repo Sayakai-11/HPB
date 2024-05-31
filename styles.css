@@ -55,20 +55,19 @@ body {
     background: #ddd;
 }
 
-
 #overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(249, 223, 229, 1); /* 背景が透けないように変更 */
+    background: rgba(249, 223, 229, 1);
     color: black;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 10000; /* オーバーレイのz-indexを高く設定 */
+    z-index: 10000;
     font-family: 'Allura', cursive;
 }
 
@@ -81,56 +80,56 @@ body {
 #message-container {
     position: relative;
     width: 100%;
-    height: 2em; /* メッセージの高さを確保 */
-    overflow: hidden; /* コンテナのオーバーフローを隠す */
+    height: 2em;
+    overflow: hidden;
 }
 
 #moving-message {
     position: absolute;
     white-space: nowrap;
     font-size: 1.5em;
-    color: grey; /* メッセージの色を指定 */
+    color: grey;
     left: 0;
 }
 
 .cake-image {
-    width: 300px; /* 画像の幅を調整 */
+    width: 300px;
     height: auto;
-    margin-top: 20px; /* 上部のマージンを追加 */
-    border-radius: 10px; /* 角を丸くする */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* ボックスシャドウを追加 */
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 header {
-    background-color: #f9dfe5; /* 薄ピンクの背景色 */
-    color: #000; /* 黒の文字色 */
-    text-align: center; /* テキストを中央揃え */
-    font-family: 'Allura', cursive; 
+    background-color: #f9dfe5;
+    color: #000;
+    text-align: center;
+    font-family: 'Allura', cursive;
     padding: 20px;
-    position: relative; /* 風船の位置を相対的に設定 */
+    position: relative;
     overflow: hidden;
-    z-index: 1; /* ヘッダーのz-indexを低く設定 */
+    z-index: 1;
 }
 
 #header-content {
-    max-width: 600px; /* ヘッダーコンテンツの幅を制限 */
-    margin: 0 auto; /* 水平方向に中央揃え */
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 #header-content h1 {
-    margin: 0; /* 余白を削除 */
-    padding-bottom: 10px; /* 下部のパディングを追加 */
+    margin: 0;
+    padding-bottom: 10px;
     font-size: 3em;
 }
 
 #header-content p {
-    margin: 0; /* 余白を削除 */
-    padding-top: 5px; /* 上部のパディングを追加 */
+    margin: 0;
+    padding-top: 5px;
 }
 
 #date-text {
-    font-size: 2em; /* フォントサイズを変更 */
-    font-family: 'Allura', cursive; 
+    font-size: 2em;
+    font-family: 'Allura', cursive;
 }
 
 .balloons {
@@ -139,13 +138,13 @@ header {
     height: 100%;
     top: 0;
     left: 0;
-    pointer-events: none; /* 風船がクリックを妨げないように */
+    pointer-events: none;
 }
 
 .balloon {
     position: absolute;
-    bottom: -10%; /* 画面の外から開始 */
-    width: 150px; /* 風船の幅を三倍に調整 */
+    bottom: -10%;
+    width: 150px;
 }
 
 footer {
@@ -153,7 +152,7 @@ footer {
     color: white;
     padding: 10px 20px;
     text-align: center;
-    z-index: 1; /* フッターのz-indexを低く設定 */
+    z-index: 1;
 }
 
 nav ul {
@@ -161,7 +160,7 @@ nav ul {
     padding: 0;
     text-align: center;
     background: #333;
-    margin: 0; /* メニューバーの余白を削除 */
+    margin: 0;
 }
 
 nav ul li {
@@ -172,34 +171,34 @@ nav ul li {
 nav ul li a {
     color: white;
     text-decoration: none;
-    padding: 10px 20px; /* リンクのパディングを追加 */
-    display: inline-block; /* リンクをブロックのように表示 */
-    font-family: 'Allura', cursive; /* フォントファミリーを追加 */
-    font-size: 1.2em; /* フォントサイズを調整 */
+    padding: 10px 20px;
+    display: inline-block;
+    font-family: 'Allura', cursive;
+    font-size: 1.2em;
 }
 
 .sticky {
     position: sticky;
     top: 0;
-    z-index: 1; /* スティッキーヘッダーのz-indexを低く設定 */
-    background-color: #f9dfe5;  
+    z-index: 1;
+    background-color: #f9dfe5;
     padding: 10px 20px;
 }
 
 #timer {
     font-size: 24px;
     text-align: center;
-    margin: 0; /* 余白を削除 */
-    padding: 10px 0; /* 上下のパディングを追加 */
-    background-color: #f9dfe5; /* 背景色をヘッダーと同じ色に */
-    color: white; /* 文字色をヘッダーのタイトルと同じ色に */
-    font-family: 'Allura', cursive; 
+    margin: 0;
+    padding: 10px 0;
+    background-color: #f9dfe5;
+    color: white;
+    font-family: 'Allura', cursive;
 }
 
-#timer span {  /*rgba(234, 56, 181, 0.831);*/
+#timer span {
     font-weight: bold;
-    color: black(250, 249, 248);
-    font-family: 'Allura', cursive; 
+    color: black;
+    font-family: 'Allura', cursive;
     font-size: 48px;
 }
 
@@ -218,18 +217,16 @@ nav ul li a {
 
 #countdown-section {
     text-align: center;
-    margin: 0; /* 余白を削除 */
-
+    margin: 0;
 }
 
 #countdown h2 {
-    font-family: 'Allura', cursive; /* 新しいフォントを適用 */
-    font-size: 3em; /* フォントサイズを変更 */
-    padding: 5px 0; 
+    font-family: 'Allura', cursive;
+    font-size: 3em;
+    padding: 5px 0;
     color: black;
 }
 
-/*Memories.html*/
 #photo-gallery {
     text-align: center;
     padding: 20px;
@@ -248,8 +245,8 @@ nav ul li a {
 .month-section {
     margin: 20px 0;
     padding: 10px;
-    border: 2px solid white; /* ボックスの白い線 */
-    border-radius: 10px; /* 角を丸くする */
+    border: 2px solid white;
+    border-radius: 10px;
     background-color: #f9dfe5;
 }
 
@@ -280,12 +277,12 @@ nav ul li a {
     color: #333;
     margin-top: 10px;
     padding: 10px;
-    background-color: #f9dfe5; 
-    border-radius: 10px; 
+    background-color: #f9dfe5;
+    border-radius: 10px;
     max-width: calc(100% - 40px);
-    box-sizing: border-box; 
-    word-wrap: break-word; 
-    overflow-wrap: break-word; 
+    box-sizing: border-box;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
     word-break: break-word;
     white-space: normal;
 }
@@ -303,7 +300,7 @@ nav ul li a {
 
 @media (max-width: 600px) {
     .month-comment {
-        font-size: 1em; /* 小さい画面向けにフォントサイズを調整 */
+        font-size: 1em;
     }
 
     .gallery img {
@@ -312,8 +309,6 @@ nav ul li a {
     }
 }
 
-
-/*message.html*/
 #message-section {
     text-align: center;
     padding: 20px;
@@ -401,20 +396,17 @@ nav ul li a {
     word-break: break-word;
 }
 
-
-
-/*past.html*/
 #past {
     position: relative;
     text-align: center;
     padding: 20px;
-    margin: 0 ;
+    margin: 0;
     width: 100%;
     background-color: #f9dfe5;
     border-radius: 10px;
     padding-bottom: 60px;
-    overflow-x: auto; /* 横スクロールを有効にする */
-    white-space: nowrap; /* コンテンツが改行されないようにする */
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 #past h2 {
@@ -458,10 +450,10 @@ nav ul li a {
 
 .pictures img {
     margin: 10px;
-    max-width: 200px; /* 写真の最大幅を設定 */
-    max-height: 200px; /* 写真の最大高さを設定 */
-    width: auto; /* アスペクト比を保持 */
-    height: auto; /* アスペクト比を保持 */
+    max-width: 200px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

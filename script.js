@@ -5,64 +5,66 @@ document.addEventListener('DOMContentLoaded', function() {
     const passwordSubmit = document.getElementById('password-submit');
     const passwordError = document.getElementById('password-error');
 
-    // パスワードが一度正しく入力されたかどうかを確認
-    if (sessionStorage.getItem('passwordCorrect') === 'true') {
-        passwordOverlay.style.display = 'none';
-    } else {
-        passwordOverlay.style.display = 'flex';
-    }
-
-    passwordSubmit.addEventListener('click', function() {
-        if (passwordInput.value === correctPassword) {
-            sessionStorage.setItem('passwordCorrect', 'true'); // パスワードが正しかったことを保存
+    if (passwordOverlay) {
+        // パスワードが一度正しく入力されたかどうかを確認
+        if (sessionStorage.getItem('passwordCorrect') === 'true') {
             passwordOverlay.style.display = 'none';
         } else {
-            passwordError.style.display = 'block';
+            passwordOverlay.style.display = 'flex';
         }
-    });
 
-    passwordInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            passwordSubmit.click();
-        }
-    });
-    
+        passwordSubmit.addEventListener('click', function() {
+            if (passwordInput.value === correctPassword) {
+                sessionStorage.setItem('passwordCorrect', 'true'); // パスワードが正しかったことを保存
+                passwordOverlay.style.display = 'none';
+            } else {
+                passwordError.style.display = 'block';
+            }
+        });
+
+        passwordInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                passwordSubmit.click();
+            }
+        });
+    }
 
     // オーバーレイのフェードアウト処理
-const overlay = document.getElementById('overlay');
-const movingMessage = document.getElementById('moving-message');
+    const overlay = document.getElementById('overlay');
+    const movingMessage = document.getElementById('moving-message');
 
-// メッセージを動かす
-function moveMessage() {
-    const containerWidth = overlay.offsetWidth;
-    const messageWidth = movingMessage.offsetWidth;
-    let startPosition = -messageWidth;
-    movingMessage.style.left = startPosition + 'px';
+    if (overlay && movingMessage) {
+        // メッセージを動かす
+        function moveMessage() {
+            const containerWidth = overlay.offsetWidth;
+            const messageWidth = movingMessage.offsetWidth;
+            let startPosition = -messageWidth;
+            movingMessage.style.left = startPosition + 'px';
 
-    function animate() {
-        startPosition += 5; // メッセージが動く速度
-        if (startPosition > containerWidth) {
-            startPosition = -messageWidth;
+            function animate() {
+                startPosition += 5; // メッセージが動く速度
+                if (startPosition > containerWidth) {
+                    startPosition = -messageWidth;
+                }
+                movingMessage.style.left = startPosition + 'px';
+                requestAnimationFrame(animate);
+            }
+            animate();
         }
-        movingMessage.style.left = startPosition + 'px';
-        requestAnimationFrame(animate);
+
+        // メッセージのアニメーションを開始
+        moveMessage();
+
+        // オーバーレイをフェードアウト
+        setTimeout(() => {
+            overlay.style.transition = 'opacity 1s';
+            overlay.style.opacity = '0';
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                localStorage.setItem('overlayShown', 'true'); // 表示したことを保存
+            }, 1000);
+        }, 3000);
     }
-    animate();
-}
-
-// メッセージのアニメーションを開始
-moveMessage();
-
-// オーバーレイをフェードアウト
-setTimeout(() => {
-    overlay.style.transition = 'opacity 1s';
-    overlay.style.opacity = '0';
-    setTimeout(() => {
-        overlay.style.display = 'none';
-        localStorage.setItem('overlayShown', 'true'); // 表示したことを保存
-    }, 1000);
-}, 3000);
-
 
     const originalTargetDate = new Date('2024-05-31T00:00:00'); // 誕生日の日時を設定
     let targetDate = new Date(originalTargetDate); // クローンを作成
@@ -121,7 +123,7 @@ setTimeout(() => {
 
     function createBalloon() {
         const balloon = document.createElement('img');
-        balloon.src = "images/balloon.png"; // スラッシュを使用してパスを修正
+        balloon.src = "https://i.imgur.com/cp4AgVZ.png";
         balloon.classList.add('balloon');
         balloon.style.left = `${Math.random() * 30 + 10}%`; // 位置をさらに左寄りに設定
         balloonsContainer.appendChild(balloon);
@@ -140,8 +142,10 @@ setTimeout(() => {
     const balloonsContainer = document.querySelector('.balloons');
 
     // 5秒間バルーンを生成
-    for (let i = 0; i < 10; i++) {
-        setTimeout(createBalloon, i * 500);
+    if (balloonsContainer) {
+        for (let i = 0; i < 10; i++) {
+            setTimeout(createBalloon, i * 500);
+        }
     }
 });
 
